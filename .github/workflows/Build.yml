@@ -39,8 +39,10 @@ jobs:
       - name: Prepare environment
         run: |
           sudo apt-get update
-          sudo apt-get install libtool-bin gperf python3-docutils autopoint gettext
-        
+          sudo apt-get install libtool-bin libtool gperf python3-docutils autopoint gettext
+          sudo aclocal
+          sudo automake --add-missing
+          sudo autoconf
       - name: Run shellcheck
         run: |
           cp -r scripts/. trunk/
